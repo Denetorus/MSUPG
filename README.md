@@ -5,12 +5,23 @@ Launching the project
 
 STEP 1
 
-Download the files and place them in a directory on your disk
+Create folder for project 
 (For example, this folder is named "MyAPI")
 
 ******************************************
 
 STEP 2
+
+Connect to git and pull project
+
+    git init;
+    git remote add origin https://github.com/denetorus/MSUGP.git
+    git pull https://github.com/Denetorus/MSUPG.git
+
+
+******************************************
+
+STEP 3
 
 Update dependencies from composer
 
@@ -18,10 +29,10 @@ Update dependencies from composer
 
 ******************************************
 
-STEP 3
+STEP 4
 
 Make directory "config" in the root directory
-Make 2 files in config directory, filling DB information:
+Make 2 files in config directory, filling DB and ugp_auth information:
 
 console.json
 
@@ -38,7 +49,7 @@ console.json
                     "dsn": "pgsql:host=hostname;port=5432;dbname=DBNAME",
                     "user": "DBUserName",
                     "password": "DBPassword"
-                }
+                },
                 "ugp_auth": {
                     "login": "login",
                     "password": "password"
@@ -68,7 +79,7 @@ web.json
                     "dsn": "pgsql:host=hostname;port=5432;dbname=DBNAME",
                     "user": "DBUserName",
                     "password": "DBPassword"
-                }
+                },
                 "ugp_auth": {
                     "login": "login",
                     "password": "password"
@@ -106,7 +117,7 @@ The method for Windows was description here
 
 ******************************************
 
-STEP 4
+STEP 5
 
 Configure ENTRY POINT in the PHP server to directory "/gate"
 
