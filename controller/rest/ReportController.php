@@ -2,11 +2,16 @@
 
 namespace controller\rest;
 
-use module\Report;
+use model\Report;
 use sketch\controller\ControllerRest;
 
 class ReportController extends ControllerRest
 {
+
+    public function allowMethods()
+    {
+        return "GET";
+    }
 
     public function actionGet()
     {
