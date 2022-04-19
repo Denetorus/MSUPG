@@ -39,7 +39,10 @@ console.json
                     "user": "DBUserName",
                     "password": "DBPassword"
                 }
-        
+                "ugp_auth": {
+                    "login": "login",
+                    "password": "password"
+                }
             }
         }
 
@@ -65,6 +68,10 @@ web.json
                     "dsn": "pgsql:host=hostname;port=5432;dbname=DBNAME",
                     "user": "DBUserName",
                     "password": "DBPassword"
+                }
+                "ugp_auth": {
+                    "login": "login",
+                    "password": "password"
                 }
         
             }
