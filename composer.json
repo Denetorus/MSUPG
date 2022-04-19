@@ -1,0 +1,27 @@
+{
+    "name": "denetorus/sketch-min",
+    "description": "Sketch php-framework with min settings",
+    "type": "project",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Mylnikov Denis",
+            "email": "gfc-com@mail.ru"
+        }
+    ],
+    "require": {
+        "denetorus/sketch":"dev-master@dev",
+        "ext-json": "*",
+        "ext-curl": "*",
+        "ext-mbstring": "*",
+        "ext-xml": "*",
+        "ext-xmlwriter": "*"
+
+    },
+
+    "autoload": {
+        "psr-0": {
+            "PHPExcel": "module/PHPExcel/"
+        }
+    }
+}
