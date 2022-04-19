@@ -2,8 +2,7 @@
 
 namespace controller\console;
 
-use DateTime;
-use module\Report;
+use model\Report;
 
 class ReportController
 {

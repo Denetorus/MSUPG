@@ -1,6 +1,6 @@
 <?php
 
-namespace module;
+namespace model;
 
 use PHPExcel_IOFactory;
 use sketch\SK;
@@ -64,7 +64,7 @@ class Report
 
     private function ExcelToArray($filename){
 
-        require_once('module/PHPExcel.php');
+        require_once('model/PHPExcel.php');
         $pExcel = PHPExcel_IOFactory::load($filename);
         $pExcel->setActiveSheetIndex(0);
         $worksheet = $pExcel->getActiveSheet();
