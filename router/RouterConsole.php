@@ -25,6 +25,11 @@ class RouterConsole extends RouterBase
                 'status' => -1
             ],
 
+            'migrate' => [
+                'path' => 'migrate',
+                'status' => -1
+            ]
+
         ];
     }
 
