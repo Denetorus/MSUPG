@@ -20,6 +20,5 @@ class TestController extends ControllerRest
         $result->insertData([ 'message' => 'rest test is execute']);
         return $result->toJson();
 
-
     }
 }

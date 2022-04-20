@@ -2,6 +2,7 @@
 
 namespace controller\console;
 
+use sketch\database\UUID;
 use sketch\SK;
 
 class TestController
@@ -15,4 +16,9 @@ class TestController
         var_dump(SK::getProps());
         return "";
     }
+
+    public function actionGenerateUUID(){
+        return UUID::createUUID();
+    }
+
 }
