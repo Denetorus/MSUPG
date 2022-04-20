@@ -4,17 +4,27 @@ namespace controller\rest;
 
 use model\Report;
 use sketch\controller\ControllerRest;
+use sketch\rest\RequestResult;
+use sketch\SK;
 
 class ReportController extends ControllerRest
 {
 
-    public function allowMethods()
+    public function allowMethods(): string
     {
         return "GET";
     }
 
     public function actionGet($reportName=null)
     {
+
+        $result = new RequestResult();
+
+        if(!isset($_GET['token'])||($_GET['token']!==SK::getProps()['webhookToken'])){
+            http_response_code(401);
+            $result->addError(1, "token", "token is unavailable or wrong");
+            return $result->toJson();
+        }
 
         if ($reportName==="transactions"){
 
@@ -24,11 +34,12 @@ class ReportController extends ControllerRest
             if ($finish<$start) $finish = $start;
 
             $rep = new Report();
-            return $rep->TransactionsByPeriod($start, $finish);
-
+            $result->insertData($rep->TransactionsByPeriod($start, $finish));
+            return $result->toJson();
         }
 
-        return $this->getReportsDeclarations();
+        $result->insertData($this->getReportsDeclarations());
+        return $result->toJson();
 
     }
 
