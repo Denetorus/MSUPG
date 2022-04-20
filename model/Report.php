@@ -64,7 +64,7 @@ class Report
 
     private function ExcelToArray($filename){
 
-        require_once('model/PHPExcel.php');
+        require_once(MODEL.'/PHPExcel.php');
         $pExcel = PHPExcel_IOFactory::load($filename);
         $pExcel->setActiveSheetIndex(0);
         $worksheet = $pExcel->getActiveSheet();

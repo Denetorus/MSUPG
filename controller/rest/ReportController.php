@@ -13,18 +13,43 @@ class ReportController extends ControllerRest
         return "GET";
     }
 
-    public function actionGet()
+    public function actionGet($reportName=null)
     {
-        $start = $_GET['start'];
-        $finish = $_GET['finish'];
 
-        if ($finish<$start) $finish = $start;
+        if ($reportName==="transactions"){
 
-        $rep = new Report();
+            $start = $_GET['start'];
+            $finish = $_GET['finish'];
 
-        return $rep->TransactionsByPeriod($start, $finish);
+            if ($finish<$start) $finish = $start;
+
+            $rep = new Report();
+            return $rep->TransactionsByPeriod($start, $finish);
+
+        }
+
+        return $this->getReportsDeclarations();
 
     }
 
+    private function getReportsDeclarations(){
+        return [
+            [
+              "method" => "POST",
+              "path" => "/rest/report/transactions",
+              "params" => [
+                  "start"=>"Unixtime",
+                  "finish"=>"Unixtime"
+              ]
+            ],
+            [
+                "method" => "POST",
+                "path" => "/rest/report/last_transactions",
+                "params" => [
+                    "start"=>"Unixtime",
+                ]
+            ],
+        ];
+    }
 
 }
