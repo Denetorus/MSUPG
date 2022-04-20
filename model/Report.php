@@ -62,18 +62,19 @@ class Report
 
     }
 
-    private function ExcelToArray($filename){
+    private function ExcelToArray($filename): array
+    {
 
         require_once(MODEL.'/PHPExcel.php');
         $pExcel = PHPExcel_IOFactory::load($filename);
-        $pExcel->setActiveSheetIndex(0);
         $worksheet = $pExcel->getActiveSheet();
 
         return $worksheet->toArray();
 
     }
 
-    public function TransactionsByPeriod($start, $finish){
+    public function TransactionsByPeriod($start, $finish): array
+    {
 
         $this->Connect();
 
