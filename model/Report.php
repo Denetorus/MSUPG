@@ -115,6 +115,13 @@ class Report
             ];
         }
 
+        usort(
+            $result,
+            function ($a, $b){
+                return $a['date']<$b['date'] ? -1 : 1;
+            }
+        );
+
         return $result;
 
     }
